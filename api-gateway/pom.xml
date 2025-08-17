@@ -27,34 +27,34 @@
     </properties>
 
     <dependencies>
-        <!-- Spring Boot WebFlux (WebClient için) -->
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
-        <!-- Springdoc OpenAPI WebFlux UI -->
+        
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
             <version>2.3.0</version>
         </dependency>
 
-        <!-- Spring Boot Test -->
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- Reactor Test for StepVerifier -->
+        
         <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- Pact Consumer Testing -->
+        
         <dependency>
             <groupId>au.com.dius.pact.consumer</groupId>
             <artifactId>junit5</artifactId>
@@ -62,7 +62,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Pact Provider Verification -->
+        
         <dependency>
             <groupId>au.com.dius.pact.provider</groupId>
             <artifactId>junit5</artifactId>
@@ -80,7 +80,7 @@
 
     <build>
         <plugins>
-            <!-- Spring Boot Maven Plugin -->
+            
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
