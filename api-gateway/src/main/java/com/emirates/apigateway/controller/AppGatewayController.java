@@ -21,7 +21,7 @@ public class AppGatewayController {
         this.webClient = WebClient.builder().baseUrl(backendBaseUrl).build();
     }
 
-    // Root endpoint - API Gateway bilgileri
+    
     @GetMapping("/")
     @Operation(
         summary = "Get API Gateway Information",
@@ -43,7 +43,7 @@ public class AppGatewayController {
         return ResponseEntity.ok(response);
     }
 
-    // Health check endpoint
+    
     @GetMapping("/health")
     @Operation(
         summary = "Health Check",
@@ -58,7 +58,7 @@ public class AppGatewayController {
         return ResponseEntity.ok(response);
     }
 
-    // 1. Tüm uygulamaları getiren endpoint
+    
     @GetMapping("/api/apps")
     @Operation(
         summary = "Get All Applications",
@@ -79,7 +79,7 @@ public class AppGatewayController {
                         });
     }
 
-    // 2. Güncellenmiş Arama endpoint'i
+    
     @GetMapping("/api/apps/search")
     @Operation(
         summary = "Search Applications",
@@ -116,7 +116,7 @@ public class AppGatewayController {
                         });
     }
 
-    // 3. Belirli bir uygulamayı getiren endpoint
+    
     @GetMapping("/api/apps/{appName}")
     @Operation(
         summary = "Get Application by Name",
