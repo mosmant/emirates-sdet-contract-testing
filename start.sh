@@ -107,13 +107,13 @@ wait_for_services() {
 # Function to show service URLs
 show_urls() {
     echo ""
-    echo "🎉 All services are running!"
+    echo " All services are running!"
     echo "============================"
-    echo "📱 Frontend:     http://localhost:8000"
-    echo "🔧 Backend:      http://localhost:3000"
-    echo "🌐 API Gateway:  http://localhost:8080"
+    echo "  Frontend:     http://localhost:8000"
+    echo "  Backend:      http://localhost:3000"
+    echo "  API Gateway:  http://localhost:8080"
     echo ""
-    echo "📚 API Documentation:"
+    echo "  API Documentation:"
     echo "   Backend API:      http://localhost:3000/api/apps"
     echo "   Gateway API:      http://localhost:8080/api/apps"
     echo "   Health Check:     http://localhost:3000/health"
@@ -121,7 +121,7 @@ show_urls() {
     echo "   GW Swagger UI:    http://localhost:8080/webjars/swagger-ui/index.html#/"
     echo "   BE Swagger UI:    http://localhost:3000/api-docs"
     echo ""
-    echo "🧪 Testing:"
+    echo "  Testing:"
     echo "   Backend Tests:    cd backend && npm test"
     echo "   Contract Tests:   cd api-gateway && mvn test"
     echo ""
@@ -131,20 +131,20 @@ show_urls() {
 # Function to cleanup on exit
 cleanup() {
     echo ""
-    echo "🛑 Stopping all services..."
+    echo "  Stopping all services..."
     if [ ! -z "$BACKEND_PID" ]; then
         kill $BACKEND_PID 2>/dev/null
-        echo "✅ Backend stopped"
+        echo "  Backend stopped"
     fi
     if [ ! -z "$GATEWAY_PID" ]; then
         kill $GATEWAY_PID 2>/dev/null
-        echo "✅ API Gateway stopped"
+        echo "  API Gateway stopped"
     fi
     if [ ! -z "$FRONTEND_PID" ]; then
         kill $FRONTEND_PID 2>/dev/null
-        echo "✅ Frontend stopped"
+        echo "  Frontend stopped"
     fi
-    echo "👋 All services stopped"
+    echo "  All services stopped"
     exit 0
 }
 
@@ -167,6 +167,6 @@ if wait_for_services; then
         sleep 1
     done
 else
-    echo "❌ Failed to start services"
+    echo " Failed to start services"
     cleanup
 fi 
