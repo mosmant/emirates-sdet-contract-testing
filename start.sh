@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Emirates SDET Case Study - Starting Services"
+echo "  Emirates SDET Case Study - Starting Services"
 echo "================================================"
 
 # Check if Node.js is installed
