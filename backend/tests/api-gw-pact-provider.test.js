@@ -5,7 +5,7 @@ describe('Pact Provider Verification', () => {
   const PROVIDER_BASE_URL = 'http://localhost:3000';
 
   it('should verify the consumer contract against the running backend', async () => {
-    console.log('🔹 Starting Pact verification...');
+    console.log(' Starting Pact verification...');
 
     const opts = {
       provider: 'backend-provider',
@@ -26,12 +26,12 @@ describe('Pact Provider Verification', () => {
     try {
       console.log('⏳ Verifying Pact contract...');
       await new Verifier(opts).verifyProvider();
-      console.log(`✅ Pact verification completed successfully against ${PROVIDER_BASE_URL}`);
+      console.log(`Pact verification completed successfully against ${PROVIDER_BASE_URL}`);
     } catch (error) {
-      console.error('❌ Pact verification failed:', error);
+      console.error(' Pact verification failed:', error);
       throw error;
     } finally {
-      console.log('🔹 Pact verification process finished.');
+      console.log(' Pact verification process finished.');
     }
   });
 });
