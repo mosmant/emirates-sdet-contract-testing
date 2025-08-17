@@ -1,0 +1,50 @@
+[
+  {
+    "appName": "appOne",
+    "appData": {
+      "appPath": "/appSix",
+      "appOwner": "Osman",
+      "isValid": true
+    }
+  },
+  {
+    "appName": "appTwo",
+    "appData": {
+      "appPath": "/appSix",
+      "appOwner": "ownerOne",
+      "isValid": true
+    }
+  },
+  {
+    "appName": "appThree",
+    "appData": {
+      "appPath": "/appSix",
+      "appOwner": "ownerOne",
+      "isValid": true
+    }
+  },
+  {
+    "appName": "appFour",
+    "appData": {
+      "appPath": "/appSix",
+      "appOwner": "ownerOne",
+      "isValid": true
+    }
+  },
+  {
+    "appName": "appFive",
+    "appData": {
+      "appPath": "/appSix",
+      "appOwner": "ownerOne",
+      "isValid": true
+    }
+  },
+  {
+    "appName": "appSix",
+    "appData": {
+      "appPath": "/appSix",
+      "appOwner": "ownerOne",
+      "isValid": true
+    }
+  }
+]

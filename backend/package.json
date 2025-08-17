@@ -1,0 +1,39 @@
+{
+  "name": "emirates-backend",
+  "version": "1.0.0",
+  "description": "Backend for Emirates SDET Case Study",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "postinstall": "npm install winston",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:pact:apigw": "NODE_ENV=test jest tests/api-gw-pact-provider.test.js",
+    "test:pact:frontend": "NODE_ENV=test jest tests/frontend-pact-provider.test.js",
+    "test:pact:all": "npm run test:pact:apigw && npm run test:pact:frontend"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^6.3.3",
+    "@pact-foundation/pact": "^15.0.1"
+  },
+  "keywords": [
+    "emirates",
+    "sdet",
+    "case-study",
+    "contract-testing"
+  ],
+  "author": "SDET Candidate",
+  "license": "MIT"
+}

@@ -1,0 +1,50 @@
+{
+  "name": "emirates-frontend-tests",
+  "version": "1.0.0",
+  "description": "Frontend Consumer Contract Tests & External Consumer Tests for Emirates SDET Case Study",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:consumer:backend": "NODE_ENV=test jest tests/backend-consumer.test.js",
+    "test:consumer:backend:watch": "NODE_ENV=test jest tests/backend-consumer.test.js --watch",
+    "test:external:api-gateway": "NODE_ENV=test jest tests/api-gateway-consumer.test.js",
+    "test:external:api-gateway:watch": "NODE_ENV=test jest tests/api-gateway-consumer.test.js --watch",
+    "test:all:contracts": "npm run test:consumer:backend && npm run test:external:api-gateway",
+    "serve": "python3 -m http.server 8080",
+    "install-deps": "npm install"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@pact-foundation/pact": "^15.0.1",
+    "axios": "^1.6.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0",
+    "node-fetch": "^2.7.0"
+  },
+  "keywords": [
+    "emirates",
+    "sdet",
+    "frontend",
+    "pact",
+    "contract-testing",
+    "consumer"
+  ],
+  "author": "SDET Candidate",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ],
+    "testTimeout": 30000,
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@pact-foundation)/)"
+    ]
+  }
+}
