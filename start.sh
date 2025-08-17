@@ -5,44 +5,44 @@ echo "================================================"
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js is not installed. Please install Node.js first."
+    echo " Node.js is not installed. Please install Node.js first."
     exit 1
 fi
 
 # Check if Java is installed
 if ! command -v java &> /dev/null; then
-    echo "❌ Java is not installed. Please install Java 17+ first."
+    echo " Java is not installed. Please install Java 17+ first."
     exit 1
 fi
 
 # Check if Maven is installed
 if ! command -v mvn &> /dev/null; then
-    echo "❌ Maven is not installed. Please install Maven first."
+    echo " Maven is not installed. Please install Maven first."
     exit 1
 fi
 
-echo "✅ Prerequisites check passed"
+echo " Prerequisites check passed"
 
 # Function to start backend
 start_backend() {
-    echo "📦 Starting Backend (Node.js)..."
+    echo " Starting Backend (Node.js)..."
     cd backend
     if [ ! -d "node_modules" ]; then
-        echo "📥 Installing backend dependencies..."
+        echo " Installing backend dependencies..."
         npm install
     fi
     npm start &
     BACKEND_PID=$!
     cd ..
-    echo "✅ Backend started with PID: $BACKEND_PID"
+    echo " Backend started with PID: $BACKEND_PID"
 }
 
 # Function to start API Gateway
 start_api_gateway() {
-    echo "🌐 Starting API Gateway (Spring Boot)..."
+    echo " Starting API Gateway (Spring Boot)..."
     cd api-gateway
     if [ ! -d "target" ]; then
-        echo "📥 Building API Gateway..."
+        echo " Building API Gateway..."
         mvn clean compile
     fi
     mvn spring-boot:run &
@@ -53,7 +53,7 @@ start_api_gateway() {
 
 # Function to start frontend
 start_frontend() {
-    echo "🎨 Starting Frontend..."
+    echo " Starting Frontend..."
     cd frontend
     if command -v python3 &> /dev/null; then
         python3 -m http.server 8000 &
@@ -62,28 +62,28 @@ start_frontend() {
     elif command -v npx &> /dev/null; then
         npx serve . -p 8000 &
     else
-        echo "⚠️  No HTTP server found. Please install Python or serve package."
+        echo "  No HTTP server found. Please install Python or serve package."
         echo "   You can manually start frontend by running: cd frontend && python -m http.server 8000"
         return
     fi
     FRONTEND_PID=$!
     cd ..
-    echo "✅ Frontend started with PID: $FRONTEND_PID"
+    echo " Frontend started with PID: $FRONTEND_PID"
 }
 
 # Function to wait for services
 wait_for_services() {
-    echo "⏳ Waiting for services to be ready..."
+    echo " Waiting for services to be ready..."
     
     # Wait for backend
     echo "   Waiting for Backend..."
     for i in {1..30}; do
         if curl -s http://localhost:3000/health > /dev/null; then
-            echo "   ✅ Backend is ready"
+            echo "   Backend is ready"
             break
         fi
         if [ $i -eq 30 ]; then
-            echo "   ❌ Backend failed to start"
+            echo "   Backend failed to start"
             return 1
         fi
         sleep 1
@@ -93,11 +93,11 @@ wait_for_services() {
     echo "   Waiting for API Gateway..."
     for i in {1..30}; do
         if curl -s http://localhost:8080/actuator/health > /dev/null; then
-            echo "   ✅ API Gateway is ready"
+            echo "   API Gateway is ready"
             break
         fi
         if [ $i -eq 30 ]; then
-            echo "   ❌ API Gateway failed to start"
+            echo "   API Gateway failed to start"
             return 1
         fi
         sleep 1
